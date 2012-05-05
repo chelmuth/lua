@@ -69,7 +69,7 @@ ranlib:
 	cd src && cd $(INSTALL_LIB) && $(RANLIB) $(TO_LIB)
 
 local:
-	$(MAKE) install INSTALL_TOP=..
+	$(MAKE) install INSTALL_TOP=../local
 
 none:
 	@echo "Please do"

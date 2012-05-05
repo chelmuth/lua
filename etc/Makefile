@@ -22,6 +22,11 @@ min:	min.c
 	$(CC) $(CFLAGS) $@.c -L$(LIB) -llua $(MYLIBS)
 	echo 'print"Hello there!"' | ./a.out
 
+mini: mini.c
+	$(CC) $(CFLAGS) $^ -o $@ $(MYLIBS) -ffunction-sections -fdata-sections -Wl,-gc-sections -static
+	./$@
+
+
 noparser: noparser.o
 	$(CC) noparser.o $(SRC)/lua.o -L$(LIB) -llua $(MYLIBS)
 	$(BIN)/luac $(TST)/hello.lua
